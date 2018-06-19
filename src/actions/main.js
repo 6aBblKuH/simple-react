@@ -1,11 +1,16 @@
 import * as types from '../constants/main'
+import * as routes from '../constants/routes'
 import axios from 'axios'
 
 export const getCharacters = () => {
   return dispatch => {
-    axios.get('https://api.got.show/api/characters')
+    axios.get(routes.GET_CHARACTERS)
       .then(resp => resp.data.map(character => {
-        return { id: character._id, name: character.name, house: character.house }
+        return {
+          id: character._id,
+          name: character.name,
+          house: character.house
+        }
       })).then(json => dispatch(setCharacters(json)))
   }
 }

@@ -17,7 +17,8 @@ export default function projects(state = initialState, action = {}) {
     case types.DELETE_CHARACTER:
       return {
         ...state,
-        characters: state.characters.filter(char => char.id != action.payload)
+        characters: state.characters.filter(char => char.id != action.payload),
+        filtered_characters: state.filtered_characters.filter(char => char.id != action.payload)
       }
 
     case types.FILTER_CHARACTERS:
