@@ -10,14 +10,14 @@ export const getCharacters = () => {
   }
 }
 
-export const setCharacters = (characters) => {
+export const setCharacters = characters => {
   return {
     type: types.SET_CHARACTERS,
     payload: characters
   }
 }
 
-export const killCharacter = (id) => {
+export const killCharacter = id => {
   /*
   * if (character.name.toLowerCase.indexOf('stark') > -1) return {}
   * Пусть хоть где-то не дохнут xD
@@ -25,5 +25,12 @@ export const killCharacter = (id) => {
   return {
     type: types.DELETE_CHARACTER,
     payload: id
+  }
+}
+
+export const filterCharacters = name => {
+  return {
+    type: types.FILTER_CHARACTERS,
+    payload: name
   }
 }

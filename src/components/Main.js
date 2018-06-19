@@ -9,6 +9,10 @@ class Main extends Component {
     this.props.dispatch(actions.getCharacters())
   }
 
+  filterCharacters = (e) => {
+    this.props.dispatch(actions.filterCharacters(e.target.value))
+  }
+
   render() {
     const { characters } = this.props
 
@@ -16,8 +20,15 @@ class Main extends Component {
       return <Spiner />
     }
     return (
-      <div>
-        { <Characters characters={ characters } />}
+      <div className='col-12'>
+        <div className='row'>
+          <div className='col-8'>
+            { <Characters characters={ characters } />}
+          </div>
+          <div className='form-group col-4 mt-20'>
+            <input placeholder='Start typing name...' onChange={this.filterCharacters} className='form-control' />
+          </div>
+        </div>
       </div>
     )
   }
@@ -25,7 +36,7 @@ class Main extends Component {
 
 const mapStateToProps = state => {
   return {
-    characters: state.main.characters
+    characters: state.main.filtered_characters
   }
 }
 
