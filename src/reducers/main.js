@@ -1,4 +1,5 @@
 import * as types from '../constants/main'
+
 const initialState = {
   characters: []
 }
@@ -9,6 +10,12 @@ export default function projects(state = initialState, action = {}) {
       return {
         ...state,
         characters: action.payload
+      }
+
+    case types.DELETE_CHARACTER:
+      return {
+        ...state,
+        characters: state.characters.filter(char => char.id != action.payload)
       }
 
     default:

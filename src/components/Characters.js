@@ -1,5 +1,6 @@
 import React from 'react'
 import Character from './Character'
+import PropTypes from 'prop-types'
 
 const Characters = (props) => {
   const characters = props.characters.map(char => {
@@ -14,6 +15,10 @@ const Characters = (props) => {
   })
 
   return <div>{characters}</div>
+}
+
+Characters.propTypes = {
+  characters: PropTypes.array.isRequired
 }
 
 export default Characters
